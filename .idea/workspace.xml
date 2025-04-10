@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8ec91e74-a412-4218-bb2b-98cbc1b55899" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/LogisticsApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/Function.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/Kyb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/RegisBot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/StaticVariables.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/TelegramBot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_admin/AdminFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_admin/AdminKyb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_admin/RoleAdmin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_driver/DriverFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_driver/DriverKyb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_driver/RoleDriver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_driver/RoleDriverMsg.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_loader/LoaderFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_loader/LoaderKyb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_loader/RoleLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_loader/RoleLoaderMsg.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_super_admin/SuperAdminFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_super_admin/SuperAdminKyb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_super_admin/SuperAdminRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_user_active/RoleUserActive.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_user_active/UserActiveFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_user_active/UserActiveKyb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/bot/role_user_active/UserActiveMsg.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/domain/Channel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/domain/Country.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/domain/Load.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/domain/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/domain/Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/domain/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/repositories/ChannelRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/repositories/CountryRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/repositories/LoadRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/repositories/OrderRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/repositories/ServiceRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/repositories/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/service/ChannelService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/service/CountryService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/service/LoadService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/service/OrderService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/service/ServiceService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/service/impl/ChannelServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/service/impl/CountryServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/service/impl/LoadServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/service/impl/OrderServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/service/impl/ServiceServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/db/service/impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uz/zafar/logisticsapplication/dto/ResponseDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/logisticsApplication-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/logisticsApplication-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2vWXJZsdAsNLYMuq4T0kG1u08id" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.logisticsApplication [clean,package...].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.LogisticsApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Farobiy students/Desktop/zafar projectsa/git uchun/logistic-bot-appication-in-springboot",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean package -Dmaven.test.skip" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="LogisticsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="logisticsApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="uz.zafar.logisticsapplication.LogisticsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8ec91e74-a412-4218-bb2b-98cbc1b55899" name="Changes" comment="" />
+      <created>1744261734031</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744261734031</updated>
+      <workItem from="1744261734697" duration="770000" />
+      <workItem from="1744262510162" duration="1623000" />
+      <workItem from="1744266296748" duration="27000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

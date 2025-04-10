@@ -1,0 +1,22 @@
+
+spring:
+  application:
+    name: logisticsApplication
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+server:
+  port: 8090
+bot:
+  username: https://t.me/Isomiddin_Fura_Xizmati_Robot
+  token: 7903656257:AAHc5CGlgsJVXTqfGlpybWTgRQaYr7xOIB8
+admin:
+  chat:
+    id: 7882316826
+size: 10
