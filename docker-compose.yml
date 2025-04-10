@@ -4,7 +4,7 @@ services:
     container_name: logistik-bot-app-db
     image: postgres:15
     ports:
-      - "5434:5432"
+      - "5435:5432"
     restart: always
     volumes:
       - /var/lib/postgresql/data
