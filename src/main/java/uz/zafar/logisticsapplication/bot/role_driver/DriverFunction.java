@@ -1,7 +1,7 @@
 package uz.zafar.logisticsapplication.bot.role_driver;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+//import lombok.RequiredArgsConstructor;
+//import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.telegram.telegrambots.meta.api.methods.send.SendContact;
@@ -23,7 +23,7 @@ import uz.zafar.logisticsapplication.dto.ResponseDto;
 import java.util.List;
 
 @Controller
-@Log4j2
+//@Log4j2
 public class DriverFunction extends Function {
 
     public final TelegramBot bot;
@@ -46,7 +46,7 @@ public class DriverFunction extends Function {
 
     public void start(User user) {
         List<Service> list = serviceService.findAll(user.getLang()).getData();
-        bot.sendMessage(user.getChatId(), msg.menuMsg(user.getLang()), kyb.menu(list, user.getLang()));
+        bot.sendMessage(user.getChatId(), msg.menuMsg(user.getLang()), kyb.menu(list, user.getLang(), user.getAddress() != null));
         user.setEventCode("menu");
         user.setPage(0);
         userService.save(user);
@@ -61,6 +61,22 @@ public class DriverFunction extends Function {
             start(user);
         } else if (inArray(text, "⬅️ Назад", "⬅️ Orqaga")) {
             start(user);
+        } else if (inArray(text, "📍 Manzilni o'zgartirish", "📍 Изменить адрес")) {
+            user.setEventCode("change address");
+            bot.sendMessage(
+                    user.getChatId(),
+                    "%s\n\n❗️Haqiqatdan ham yuk manzilini o‘zgartirmoqchimisiz?".formatted(
+                            "Sizning avvalgi manzilingiz: <code>%s</code>.".formatted(user.getAddress())
+                    ),
+                    kyb.isSuccess(user.getLang())
+            );
+            userService.save(user);
+            return;
+        } else if (inArray(text, "➕ Manzil qo'shish", "➕ Добавить адрес")) {
+            bot.sendMessage(user.getChatId(), "🚚 Yuk qaysi manzildan kerakligini kiriting:", kyb.back(user.getLang()));
+            user.setEventCode("add new address");
+            userService.save(user);
+            return;
         } else if (inArray(text, "📋 Мои заказы", "📋 Mening buyurtmalarim")) {
             bot.sendMessage(user.getChatId(), text, kyb.back(user.getLang()));
             List<Order> list = orderService.findAllByUserId(user.getId()).getData();
@@ -89,7 +105,7 @@ public class DriverFunction extends Function {
                     user.setCountryId(null);
                     userService.save(user);
                     bot.sendMessage(user.getChatId(), text, kyb.back(user.getLang()));
-                    bot.sendMessage(user.getChatId() , msg.successService(service(user.getServiceId()), country, user.getLang()),kyb.isSuccessBtn(user.getLang()));
+                    bot.sendMessage(user.getChatId(), msg.successService(service(user.getServiceId()), country, user.getLang()), kyb.isSuccessBtn(user.getLang()));
                     return;
                 }
                 bot.sendMessage(user.getChatId(), text, kyb.back(user.getLang()));
@@ -97,7 +113,7 @@ public class DriverFunction extends Function {
             } else {
                 List<Service> list = serviceService.findAll(user.getLang()).getData();
                 bot.sendMessage(user.getChatId(), msg.errorBtn(user.getLang()), kyb.menu(
-                        list, user.getLang()
+                        list, user.getLang(), user.getAddress() != null
                 ));
             }
         }
@@ -210,7 +226,7 @@ public class DriverFunction extends Function {
             order.setStatus("open");
             order.setActive(true);
             orderService.save(order);
-            bot.sendMessage(user.getChatId(), msg.requestPhone(user.getLang()), true);
+            /*bot.sendMessage(user.getChatId(), msg.requestPhone(user.getLang()), true);*/
             user.setEventCode("get phone number");
             userService.save(user);
             Country country = countryService.findById(order.getCountryId()).getData();
@@ -233,9 +249,10 @@ public class DriverFunction extends Function {
             String p = user.getPhone();
             if (user.getHelperPhone() != null) {
                 p = p.concat(", " + user.getHelperPhone());
-            }p = p.concat(", " + order.getPhone());
+            }
+            p = p.concat(", " + order.getPhone());
             for (User admin : list) {
-                bot.sendMessage(admin.getChatId(), msg.sendAdminMsg(order.getId(),user.getLang(), service(user.getServiceId()), country, p, user), kyb.successOrder(order.getId()));
+                bot.sendMessage(admin.getChatId(), msg.sendAdminMsg(order.getId(), user.getLang(), service(user.getServiceId()), country, p, user), kyb.successOrder(order.getId()));
                 admin.setEventCode("menu");
                 userService.save(admin);
             }
@@ -255,5 +272,30 @@ public class DriverFunction extends Function {
 
         bot.alertMessage(callbackQuery, msg.successDelete(user.getLang()));
         bot.deleteMessage(user.getChatId(), messageId);
+    }
+
+    public void changeAddress(User user, String text) {
+        if (inArray(text, "✅ Ha", "«❌ Да»")) {
+            bot.sendMessage(user.getChatId(), "📍 Iltimos, yuk qaysi manzildan qaysi manzilga kerakligini kiriting:", kyb.back(user.getLang()));
+        } else if (inArray(text, "❌ Yo'q", "«❌ Нет»")) {
+            start(user);
+        } else if (inArray(text, "⬅️ Назад", "⬅️ Orqaga")) {
+            menu(user, user.getLang().equals("uz") ? "📍 Manzilni o'zgartirish" : "📍 Изменить адрес");
+        } else {
+            user.setAddress(text);
+            userService.save(user);
+            bot.sendMessage(user.getChatId(), "✅ Manzilingiz muvaffaqiyatli o'zgartirildi!", true);
+            start(user);
+        }
+    }
+
+    public void addNewAddress(User user, String text) {
+        if (inArray(text, "⬅️ Назад", "⬅️ Orqaga")) start(user);
+        else {
+            user.setAddress(text);
+            userService.save(user);
+            bot.sendMessage(user.getChatId(), "✅ Manzilingiz muvaffaqiyatli o'zgartirildi!", true);
+            start(user);
+        }
     }
 }

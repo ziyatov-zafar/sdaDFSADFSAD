@@ -2,8 +2,6 @@ package uz.zafar.logisticsapplication.db.domain;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -118,6 +116,17 @@ public class User {
     public String getLang() {
         return lang;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    private String address;
+
 
     public void setLang(String lang) {
         this.lang = lang;

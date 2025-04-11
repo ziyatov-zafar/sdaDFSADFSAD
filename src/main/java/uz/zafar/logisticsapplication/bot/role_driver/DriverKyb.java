@@ -15,9 +15,20 @@ import java.util.List;
 @Controller
 public class DriverKyb extends Kyb {
 
-    public ReplyKeyboardMarkup menu(List<Service> list, String lang) {
+    public ReplyKeyboardMarkup menu(List<Service> list, String lang, Boolean presentAddress) {
         List<KeyboardRow> rows = new ArrayList<>();
+        KeyboardRow addressRow = new KeyboardRow();
+        if (presentAddress) {
+            addressRow.add(
+                    lang.equals("uz") ? "📍 Manzilni o'zgartirish" : "📍 Изменить адрес"
+            );
+        } else {
+            addressRow.add(
+                    lang.equals("uz") ? "➕ Manzil qo'shish" : "➕ Добавить адрес"
+            );
+        }
 
+        rows.add(addressRow);
         // Xizmatlarni qo‘shish (2 ta per qator)
         for (Service service : list) {
             KeyboardRow row = new KeyboardRow();
@@ -44,13 +55,6 @@ public class DriverKyb extends Kyb {
 
         return markup;
     }
-
-
-
-
-
-
-
 
 
     public ReplyKeyboardMarkup back(String lang) {

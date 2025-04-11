@@ -1,7 +1,7 @@
 package uz.zafar.logisticsapplication.bot.role_loader;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+//import lombok.RequiredArgsConstructor;
+//import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.telegram.telegrambots.meta.api.methods.send.SendContact;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
@@ -19,7 +19,7 @@ import uz.zafar.logisticsapplication.dto.ResponseDto;
 import java.util.List;
 
 @Controller
-@Log4j2
+//@Log4j2
 public class LoaderFunction extends Function {
     private final UserService userService;
     public final TelegramBot bot;

@@ -1,7 +1,7 @@
 package uz.zafar.logisticsapplication.db.service.impl;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+//import lombok.RequiredArgsConstructor;
+//import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import uz.zafar.logisticsapplication.dto.ResponseDto;
 import java.util.Optional;
 
 @Service
-@Log4j2
+//@Log4j2
 public class CountryServiceImpl implements CountryService {
     private final CountryRepository countryRepository;
 

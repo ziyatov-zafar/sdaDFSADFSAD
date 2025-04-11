@@ -1,6 +1,5 @@
 package uz.zafar.logisticsapplication.bot.role_super_admin;
 
-import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
@@ -15,7 +14,6 @@ import java.util.List;
 
 
 @Controller
-@Log4j2
 public class SuperAdminKyb extends Kyb {
     private String backButton = "\uD83D\uDD19 Orqaga qaytish";
     public ReplyKeyboardMarkup back = setKeyboards(new String[]{backButton}, 1);

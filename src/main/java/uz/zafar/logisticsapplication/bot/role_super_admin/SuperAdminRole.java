@@ -1,7 +1,7 @@
 package uz.zafar.logisticsapplication.bot.role_super_admin;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+//import lombok.RequiredArgsConstructor;
+//import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -10,7 +10,7 @@ import uz.zafar.logisticsapplication.db.domain.User;
 
 
 @Controller
-@Log4j2
+//@Log4j2
 public class SuperAdminRole {
     private final SuperAdminFunction function;
 

@@ -1,8 +1,6 @@
 package uz.zafar.logisticsapplication.db.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 @Table(name = "load11")
 @Entity

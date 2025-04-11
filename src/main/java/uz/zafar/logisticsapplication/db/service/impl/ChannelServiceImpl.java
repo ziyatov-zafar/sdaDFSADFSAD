@@ -1,9 +1,9 @@
 package uz.zafar.logisticsapplication.db.service.impl;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+//import lombok.AllArgsConstructor;
+//import lombok.NoArgsConstructor;
+//import lombok.RequiredArgsConstructor;
+//import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uz.zafar.logisticsapplication.db.domain.Channel;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Log4j2
+//@Log4j2
 public class ChannelServiceImpl implements ChannelService {
     @Autowired
     private  ChannelRepository channelRepository;

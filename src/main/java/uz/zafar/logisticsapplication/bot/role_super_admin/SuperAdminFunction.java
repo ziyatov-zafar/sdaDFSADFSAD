@@ -1,7 +1,7 @@
 package uz.zafar.logisticsapplication.bot.role_super_admin;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+//import lombok.RequiredArgsConstructor;
+//import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.telegram.telegrambots.meta.api.methods.CopyMessage;
@@ -16,7 +16,7 @@ import uz.zafar.logisticsapplication.dto.ResponseDto;
 import java.util.List;
 
 @Controller
-@Log4j2
+//@Log4j2
 public class SuperAdminFunction extends Function {
     private final TelegramBot bot;
     private final UserService userService;

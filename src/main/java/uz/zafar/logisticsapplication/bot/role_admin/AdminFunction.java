@@ -1,7 +1,7 @@
 package uz.zafar.logisticsapplication.bot.role_admin;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+//import lombok.RequiredArgsConstructor;
+//import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.telegram.telegrambots.meta.api.methods.CopyMessage;
@@ -19,7 +19,7 @@ import java.util.UUID;
 import static uz.zafar.logisticsapplication.bot.StaticVariables.*;
 
 @Controller
-@Log4j2
+//@Log4j2
 public class AdminFunction extends Function {
 
     private final TelegramBot bot;
@@ -166,19 +166,22 @@ public class AdminFunction extends Function {
                     🆔 ID: %d
                     📌 Xizmat turi: %s
                     📞 Foydalanuvchining telefon raqami: %s
-                    
+                    %s
                     👤 Foydalanuvchi ma'lumotlari:
                     🆔 ID: %d
                     💬 Chat ID: %d
                     🔖 Nickname: %s
                     🔗 Username: %s
+                    📞 Telefon raqam: %s
                     """.formatted(orderId,
                     isUz ? service.getNameUz() : service.getNameRu(),
                     phones,
+                    user.getRole().equals("driver") ? ("\uD83D\uDCCD Yuk uchun tanlangan manzil: " + (user.getAddress() == null ? "Mavjud emas" : user.getAddress())) : "",
                     user.getId(),
                     user.getChatId(),
                     user.getNickname(),
-                    (user.getUsername() == null || user.getUsername().isEmpty()) ? "Mavjud emas" : "@" + user.getUsername()
+                    (user.getUsername() == null || user.getUsername().isEmpty()) ? "Mavjud emas" : "@" + user.getUsername(),
+                    user.getPhone() + (user.getHelperPhone() == null ? "" : ", %s".formatted(user.getHelperPhone()))
             );
 
         }
@@ -189,6 +192,8 @@ public class AdminFunction extends Function {
                 📌 Xizmat turi: %s
                 🌍 Davlat: %s
                 📞 Foydalanuvchining telefon raqami: %s
+                %s
+                
                 
                 👤 Foydalanuvchi ma'lumotlari:
                 🆔 ID: %d
@@ -199,6 +204,8 @@ public class AdminFunction extends Function {
                 isUz ? service.getNameUz() : service.getNameRu(),
                 isUz ? country.getNameUz() : country.getNameRu(),
                 phones,
+                 ("\uD83D\uDCCD Yuk uchun tanlangan manzil: " + (user.getAddress() == null ? "Mavjud emas" : user.getAddress())),
+
                 user.getId(),
                 user.getChatId(),
                 user.getNickname(),
@@ -367,26 +374,33 @@ public class AdminFunction extends Function {
         }
         return msg;
     }
-
     private String userInformation(User user) {
         return """
-                Ushbu foydalanuvchining malumoatlari: 
-                
-                1. Telegramdagi niki: <a href="tg://user?id=%d" >%s</a>
-                2. Username: %s
-                3. Id: %d
-                4. Chat Id: %d
-                5. Telefon raqam: %s
-                6. Qo'shimcha telefon raqam: %s
-                7. Holati: %s
-                """.formatted(
-                user.getChatId(), user.getFirstname() + (user.getLastname() == null ? "" : " " + user.getLastname()),
+            🧾 <b>Foydalanuvchi haqida ma'lumot:</b>
+
+            👤 <b>Ismi:</b> <a href="tg://user?id=%d">%s</a>
+            🔗 <b>Username:</b> %s
+            🆔 <b>Id:</b> %d
+            💬 <b>Chat ID:</b> %d
+            📞 <b>Telefon raqam:</b> %s
+            ☎️ <b>Qo'shimcha raqam:</b> %s
+            🎯 <b>Holati:</b> %s
+            %s
+            """.formatted(
+                user.getChatId(),
+                user.getFirstname() + (user.getLastname() == null ? "" : " " + user.getLastname()),
                 user.getUsername() == null ? "Mavjud emas" : ("@" + user.getUsername()),
-                user.getId(), user.getChatId(),
+                user.getId(),
+                user.getChatId(),
                 user.getPhone() == null ? "Mavjud emas" : user.getPhone(),
-                user.getHelperPhone() == null ? "Mavjud emas" : user.getHelperPhone(), getCondition(user.getRole())
+                user.getHelperPhone() == null ? "Mavjud emas" : user.getHelperPhone(),
+                getCondition(user.getRole()),
+                user.getRole().equals("driver")
+                        ? "🗺 <b>Haydovchining yuk manzili:</b> %s".formatted(user.getAddress() == null ? "Kiritilmagan" : user.getAddress())
+                        : ""
         );
     }
+
 
     private String getCondition(String role) {
         return switch (role) {

@@ -1,6 +1,6 @@
 package uz.zafar.logisticsapplication.db.service.impl;
 
-import lombok.extern.log4j.Log4j2;
+//import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Log4j2
+//@Log4j2
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     public UserServiceImpl(UserRepository userRepository) {

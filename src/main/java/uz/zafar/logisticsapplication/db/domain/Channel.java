@@ -1,8 +1,7 @@
 package uz.zafar.logisticsapplication.db.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+
 
 @Entity
 @Table(name = "channels")

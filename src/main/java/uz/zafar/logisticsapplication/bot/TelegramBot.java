@@ -3,8 +3,6 @@ package uz.zafar.logisticsapplication.bot;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.SneakyThrows;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -52,7 +50,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Log4j2
 public class TelegramBot extends TelegramLongPollingBot {
 
     @Autowired
@@ -97,7 +94,6 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Autowired
     private OrderService orderService;
 
-    @SneakyThrows
     @Override
     public void onUpdateReceived(Update update) {
 
@@ -137,6 +133,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         user.setLastname(lastname);
         user.setNickname(nickname);
         userService.save(user);
+
         if (user.getChatId().equals(superAdminChatId)) {
             if (!user.getRole().equals("super_admin")) {
                 user.setRole("super_admin");
@@ -241,7 +238,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
 
-    @SneakyThrows
+////    @SneakyThrows
     public void sendMessage(Long chatId, String text) {
         try {
             execute(
@@ -259,7 +256,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
-    @SneakyThrows
+//    @SneakyThrows
     public void sendMessage(Long chatId, String text, ReplyKeyboardMarkup markup) {
         try {
             execute(
@@ -277,7 +274,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
-    @SneakyThrows
+//    @SneakyThrows
     public void sendMessage(Long chatId, String text, InlineKeyboardMarkup markup) {
         try {
             execute(
@@ -296,7 +293,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
-    @SneakyThrows
+//    @SneakyThrows
     public void sendMessage(Long chatId, String text, Boolean remove) {
         try {
             execute(

@@ -93,20 +93,21 @@ public class RoleDriverMsg {
 
         if (country == null) {
             return (isUz ? "🇺🇿 O'zbek" : "🇷🇺 Русский") + """
-                
-                🚖 SHOFYOR
-                🆔 ID: %d
-                📌 Xizmat turi: %s
-                📞 Foydalanuvchining telefon raqami: %s
-                
-                👤 Foydalanuvchi ma'lumotlari:
-                🆔 ID: %d
-                💬 Chat ID: %d
-                🔖 Nickname: %s
-                🔗 Username: %s
-                """.formatted(orderId,
+                    
+                    🚖 SHOFYOR
+                    🆔 ID: %d
+                    📌 Xizmat turi: %s
+                    📞 Foydalanuvchining telefon raqami: %s
+                    📍 Shofyorning yuk uchun kiritgan manzili: %s
+                    👤 Foydalanuvchi ma'lumotlari:
+                    🆔 ID: %d
+                    💬 Chat ID: %d
+                    🔖 Nickname: %s
+                    🔗 Username: %s
+                    """.formatted(orderId,
                     isUz ? service.getNameUz() : service.getNameRu(),
                     phones,
+                    user.getAddress() == null ? "Mavjud emas" : user.getAddress(),
                     user.getId(),
                     user.getChatId(),
                     user.getNickname(),
@@ -121,6 +122,7 @@ public class RoleDriverMsg {
                 📌 Xizmat turi: %s
                 🌍 Davlat: %s
                 📞 Foydalanuvchining telefon raqami: %s
+                📍 Shofyorning yuk uchun kiritgan manzili: %s
                 
                 👤 Foydalanuvchi ma'lumotlari:
                 🆔 ID: %d
@@ -131,6 +133,7 @@ public class RoleDriverMsg {
                 isUz ? service.getNameUz() : service.getNameRu(),
                 isUz ? country.getNameUz() : country.getNameRu(),
                 phones,
+                user.getAddress() == null ? "Mavjud emas" : user.getAddress(),
                 user.getId(),
                 user.getChatId(),
                 user.getNickname(),
@@ -181,36 +184,36 @@ public class RoleDriverMsg {
 
             if (lang.equals("uz")) {
                 template = """
-                    🆔 Id: %d
-                    📝 Sizning to‘liq ismingiz: %s
-                    📞 Telefon raqamingiz: %s
-                    🛠 Siz tanlagan xizmat turi: %s
-                    
-                    ✅ Buyurtmangiz qabul qilindi!
-                    """;
+                        🆔 Id: %d
+                        📝 Sizning to‘liq ismingiz: %s
+                        📞 Telefon raqamingiz: %s
+                        🛠 Siz tanlagan xizmat turi: %s
+                        
+                        ✅ Buyurtmangiz qabul qilindi!
+                        """;
                 return template.formatted(order.getId(), order.getFullName(), order.getPhone(), service.getNameUz());
 
             } else if (lang.equals("ru")) {
                 template = """
-                    🆔 Id: %d
-                    📝 Ваше полное имя: %s
-                    📞 Ваш номер телефона: %s
-                    🛠 Выбранный тип услуги: %s
-                    
-                    ✅ Ваш заказ принят!
-                    """;
-                return template.formatted(order.getId(), order.getFullName(), order.getPhone(),  service.getNameRu());
+                        🆔 Id: %d
+                        📝 Ваше полное имя: %s
+                        📞 Ваш номер телефона: %s
+                        🛠 Выбранный тип услуги: %s
+                        
+                        ✅ Ваш заказ принят!
+                        """;
+                return template.formatted(order.getId(), order.getFullName(), order.getPhone(), service.getNameRu());
             }
 
             // Default English message
             template = """
-                🆔 Id: %d
-                📝 Your full name: %s
-                📞 Your phone number: %s
-                🛠 Selected service type: %s
-                
-                ✅ Your order has been received!
-                """;
+                    🆔 Id: %d
+                    📝 Your full name: %s
+                    📞 Your phone number: %s
+                    🛠 Selected service type: %s
+                    
+                    ✅ Your order has been received!
+                    """;
             return template.formatted(order.getId(), order.getFullName(), order.getPhone(), service.getNameUz());
 
         }

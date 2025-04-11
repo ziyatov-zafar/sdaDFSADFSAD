@@ -1,7 +1,7 @@
 package uz.zafar.logisticsapplication.bot.role_user_active;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+//import lombok.RequiredArgsConstructor;
+//import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Contact;
@@ -14,7 +14,7 @@ import uz.zafar.logisticsapplication.db.service.UserService;
 
 
 @Controller
-@Log4j2
+//@Log4j2
 public class UserActiveFunction extends Function {
 
     public final TelegramBot bot;

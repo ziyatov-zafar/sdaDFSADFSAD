@@ -1,7 +1,7 @@
 package uz.zafar.logisticsapplication.bot.role_driver;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+//import lombok.RequiredArgsConstructor;
+//import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -9,7 +9,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import uz.zafar.logisticsapplication.db.domain.User;
 
 @Controller
-@Log4j2
+//@Log4j2
 public class RoleDriver {
     private final DriverFunction function;
 
@@ -34,8 +34,12 @@ public class RoleDriver {
                         function.menu(user, text);
                     } else if (eventCode.equals("countries menu")) {
                         function.countriesMenu(user, text);
-                    } else if (function.inArray(eventCode, "get full name" , "get phone number")) {
-                        function.addOrder(user , text , eventCode);
+                    } else if (function.inArray(eventCode, "get full name", "get phone number")) {
+                        function.addOrder(user, text, eventCode);
+                    } else if (eventCode.equals("change address")) {
+                        function.changeAddress(user, text);
+                    } else if (eventCode.equals("add new address")) {
+                        function.addNewAddress(user, text);
                     }
                 }
             }
@@ -51,7 +55,7 @@ public class RoleDriver {
                 if (eventCode.equals("countries menu")) {
                     function.countriesMenu(user, messageId, callbackQuery, data);
                 } else if (eventCode.equals("menu")) {
-                    function.menu(user,callbackQuery , messageId , data );
+                    function.menu(user, callbackQuery, messageId, data);
                 }
             }
         }

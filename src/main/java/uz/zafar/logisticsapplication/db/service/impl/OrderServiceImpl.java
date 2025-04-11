@@ -1,7 +1,7 @@
 package uz.zafar.logisticsapplication.db.service.impl;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+//import lombok.RequiredArgsConstructor;
+//import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uz.zafar.logisticsapplication.db.domain.Order;
@@ -12,7 +12,7 @@ import uz.zafar.logisticsapplication.dto.ResponseDto;
 import java.util.List;
 
 @Service
-@Log4j2
+//@Log4j2
 public class OrderServiceImpl implements OrderService {
     @Autowired private  OrderRepository orderRepository;
 
