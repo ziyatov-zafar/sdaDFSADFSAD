@@ -85,11 +85,19 @@ public class DriverFunction extends Function {
             userService.save(user);
             return;
         } else if (inArray(text, "➕ Manzil qo'shish", "➕ Добавить адрес")) {
-            bot.sendMessage(
-                    user.getChatId(),
-                    "🚚 Yuk qaysi manzildan qaysi manzilga kerakligini kiriting:",
-                    kyb.back(user.getLang())
-            );
+            if (user.getLang().equals("uz")) {
+                bot.sendMessage(
+                        user.getChatId(),
+                        "🚚 Yuk qaysi manzildan qaysi manzilga kerakligini kiriting:",
+                        kyb.back(user.getLang())
+                );
+            } else if (user.getLang().equals("ru")) {
+                bot.sendMessage(
+                        user.getChatId(),
+                        "🚚 Укажите, с какого адреса на какой адрес нужен груз:",
+                        kyb.back(user.getLang())
+                );
+            }
             user.setEventCode("add new address");
             userService.save(user);
             return;

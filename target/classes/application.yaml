@@ -14,8 +14,8 @@ spring:
 server:
   port: 8090
 bot:
-  username: https://t.me/botbotbtobtowbsrbortsbot
-  token: 7329553420:AAE9CLPog_Ici_yn8r1i4V4SpmloJGpBAiw
+  username: https://t.me/Isomiddin_Fura_Xizmati_Robot
+  token: 7903656257:AAHc5CGlgsJVXTqfGlpybWTgRQaYr7xOIB8
 admin:
   chat:
     id: 7882316826
