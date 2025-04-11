@@ -2,6 +2,7 @@ package uz.zafar.logisticsapplication.bot.role_driver;
 
 //import lombok.RequiredArgsConstructor;
 //import lombok.extern.log4j.Log4j2;
+
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.telegram.telegrambots.meta.api.methods.send.SendContact;
@@ -63,17 +64,32 @@ public class DriverFunction extends Function {
             start(user);
         } else if (inArray(text, "📍 Manzilni o'zgartirish", "📍 Изменить адрес")) {
             user.setEventCode("change address");
-            bot.sendMessage(
-                    user.getChatId(),
-                    "%s\n\n❗️Haqiqatdan ham yuk manzilini o‘zgartirmoqchimisiz?".formatted(
-                            "Sizning avvalgi manzilingiz: <code>%s</code>.".formatted(user.getAddress())
-                    ),
-                    kyb.isSuccess(user.getLang())
-            );
+            if (user.getLang().equals("uz")) {
+                bot.sendMessage(
+                        user.getChatId(),
+                        "%s\n\n❗️Haqiqatdan ham yuk manzilini o‘zgartirmoqchimisiz?".formatted(
+                                "Sizning avvalgi manzilingiz: <code>%s</code>.".formatted(user.getAddress())
+                        ),
+                        kyb.isSuccess(user.getLang())
+                );
+            } else if (user.getLang().equals("ru")) {
+                bot.sendMessage(
+                        user.getChatId(),
+                        "%s\n\n❗️Вы действительно хотите изменить адрес доставки?".formatted(
+                                "Ваш предыдущий адрес: <code>%s</code>.".formatted(user.getAddress())
+                        ),
+                        kyb.isSuccess(user.getLang())
+                );
+            }
+
             userService.save(user);
             return;
         } else if (inArray(text, "➕ Manzil qo'shish", "➕ Добавить адрес")) {
-            bot.sendMessage(user.getChatId(), "🚚 Yuk qaysi manzildan kerakligini kiriting:", kyb.back(user.getLang()));
+            bot.sendMessage(
+                    user.getChatId(),
+                    "🚚 Yuk qaysi manzildan qaysi manzilga kerakligini kiriting:",
+                    kyb.back(user.getLang())
+            );
             user.setEventCode("add new address");
             userService.save(user);
             return;
@@ -276,7 +292,11 @@ public class DriverFunction extends Function {
 
     public void changeAddress(User user, String text) {
         if (inArray(text, "✅ Ha", "«❌ Да»")) {
-            bot.sendMessage(user.getChatId(), "📍 Iltimos, yuk qaysi manzildan qaysi manzilga kerakligini kiriting:", kyb.back(user.getLang()));
+            if (user.getLang().equals("uz")) {
+                bot.sendMessage(user.getChatId(), "📍 Iltimos, yuk qaysi manzildan qaysi manzilga kerakligini kiriting:", kyb.back(user.getLang()));
+            } else if (user.getLang().equals("ru")) {
+                bot.sendMessage(user.getChatId(), "📍 Пожалуйста, укажите, с какого адреса на какой адрес нужен груз:", kyb.back(user.getLang()));
+            }
         } else if (inArray(text, "❌ Yo'q", "«❌ Нет»")) {
             start(user);
         } else if (inArray(text, "⬅️ Назад", "⬅️ Orqaga")) {
@@ -284,7 +304,11 @@ public class DriverFunction extends Function {
         } else {
             user.setAddress(text);
             userService.save(user);
-            bot.sendMessage(user.getChatId(), "✅ Manzilingiz muvaffaqiyatli o'zgartirildi!", true);
+            if (user.getLang().equals("uz")) {
+                bot.sendMessage(user.getChatId(), "✅ Manzilingiz muvaffaqiyatli o'zgartirildi!", true);
+            } else if (user.getLang().equals("ru")) {
+                bot.sendMessage(user.getChatId(), "✅ Ваш адрес успешно изменен!", true);
+            }
             start(user);
         }
     }
@@ -294,7 +318,12 @@ public class DriverFunction extends Function {
         else {
             user.setAddress(text);
             userService.save(user);
-            bot.sendMessage(user.getChatId(), "✅ Manzilingiz muvaffaqiyatli o'zgartirildi!", true);
+            if (user.getLang().equals("uz")) {
+                bot.sendMessage(user.getChatId(), "✅ Manzilingiz muvaffaqiyatli o'zgartirildi!", true);
+            } else if (user.getLang().equals("ru")) {
+                bot.sendMessage(user.getChatId(), "✅ Ваш адрес успешно изменен!", true);
+            }
+
             start(user);
         }
     }
