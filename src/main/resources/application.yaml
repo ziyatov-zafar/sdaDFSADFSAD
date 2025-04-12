@@ -15,7 +15,7 @@ server:
   port: 8090
 bot:
   username: https://t.me/Isomiddin_Fura_Xizmati_Robot
-  token: 7903656257:AAHc5CGlgsJVXTqfGlpybWTgRQaYr7xOIB8
+  token: 8016727016:AAEIsv19i1E7BGferFriPF4a-v_Pp-LeIt8
 admin:
   chat:
     id: 7882316826

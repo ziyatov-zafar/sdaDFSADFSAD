@@ -2,6 +2,7 @@ package uz.zafar.logisticsapplication.bot.role_admin;
 
 //import lombok.RequiredArgsConstructor;
 //import lombok.extern.log4j.Log4j2;
+
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.telegram.telegrambots.meta.api.methods.CopyMessage;
@@ -204,7 +205,7 @@ public class AdminFunction extends Function {
                 isUz ? service.getNameUz() : service.getNameRu(),
                 isUz ? country.getNameUz() : country.getNameRu(),
                 phones,
-                 ("\uD83D\uDCCD Yuk uchun tanlangan manzil: " + (user.getAddress() == null ? "Mavjud emas" : user.getAddress())),
+                ("\uD83D\uDCCD Yuk uchun tanlangan manzil: " + (user.getAddress() == null ? "Mavjud emas" : user.getAddress())),
 
                 user.getId(),
                 user.getChatId(),
@@ -370,23 +371,24 @@ public class AdminFunction extends Function {
                     .replace("<", "&lt;")
                     .replace(">", "&gt;");
 
-            msg = msg.concat("%d. <a href=\"tg://user?id=%d\">%s</a>\n".formatted(i + 1, users.get(i).getChatId(), fullName));
+            msg = msg.concat("%d. <a href=\"tg://user?id=%d\">%s</a> %s\n".formatted(i + 1, users.get(i).getChatId(), fullName, users.get(i).getAddress() == null ? "" : users.get(i).getAddress()));
         }
         return msg;
     }
+
     private String userInformation(User user) {
         return """
-            🧾 <b>Foydalanuvchi haqida ma'lumot:</b>
-
-            👤 <b>Ismi:</b> <a href="tg://user?id=%d">%s</a>
-            🔗 <b>Username:</b> %s
-            🆔 <b>Id:</b> %d
-            💬 <b>Chat ID:</b> %d
-            📞 <b>Telefon raqam:</b> %s
-            ☎️ <b>Qo'shimcha raqam:</b> %s
-            🎯 <b>Holati:</b> %s
-            %s
-            """.formatted(
+                🧾 <b>Foydalanuvchi haqida ma'lumot:</b>
+                
+                👤 <b>Ismi:</b> <a href="tg://user?id=%d">%s</a>
+                🔗 <b>Username:</b> %s
+                🆔 <b>Id:</b> %d
+                💬 <b>Chat ID:</b> %d
+                📞 <b>Telefon raqam:</b> %s
+                ☎️ <b>Qo'shimcha raqam:</b> %s
+                🎯 <b>Holati:</b> %s
+                %s
+                """.formatted(
                 user.getChatId(),
                 user.getFirstname() + (user.getLastname() == null ? "" : " " + user.getLastname()),
                 user.getUsername() == null ? "Mavjud emas" : ("@" + user.getUsername()),
